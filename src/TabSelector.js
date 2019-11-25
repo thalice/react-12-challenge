@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class TabSelector extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeId: 'home'
+      activeId: "home"
     };
     this.handleChangeTab = this.handleChangeTab.bind(this);
   }
 
-  handleChangeTab(event) {
+ // handleChangeTab(event) {
     const buttonId = event.target.id;
     this.setState({ activeId: buttonId });
+    this.props.onChangeId(buttonId);
   }
 
   render() {
@@ -21,21 +22,21 @@ class TabSelector extends Component {
         <button
           id="home"
           onClick={this.handleChangeTab}
-          className={activeId === 'home' ? 'active' : ''}
+          className={activeId === "home" ? "active" : ""}
         >
           Home
         </button>
         <button
           id="about"
           onClick={this.handleChangeTab}
-          className={activeId === 'about' ? 'active' : ''}
+          className={activeId === "about" ? "active" : ""}
         >
           About
         </button>
         <button
           id="contact"
           onClick={this.handleChangeTab}
-          className={activeId === 'contact' ? 'active' : ''}
+          className={activeId === "contact" ? "active" : ""}
         >
           Contact
         </button>
